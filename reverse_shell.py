@@ -3,7 +3,7 @@ from subprocess import Popen, PIPE
 from socket import socket, AF_INET, SOCK_STREAM
 
 EXIT_COMMANDS = ('exit', 'quit', 'bye')
-command: str | None = None
+command = None
 
 server_name = sys.argv[1]
 server_port = 8000
