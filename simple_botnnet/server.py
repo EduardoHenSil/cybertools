@@ -14,6 +14,8 @@ class BotHandler(socketserver.BaseRequestHandler):
         for command in load_commands():
             print(f'Sending {command}')
             self.request.sendall(command.encode())
+            data = self.request.recv(1024).decode().strip()
+            print(data)
 
 
 if __name__ == '__main__':
