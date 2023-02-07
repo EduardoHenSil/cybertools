@@ -12,11 +12,12 @@ class BotHandler(socketserver.BaseRequestHandler):
         print(f'Bot with IP {self.client_address[0]} send:')
         print(data)
         for command in load_commands():
+            print(f'Sending {command}')
             self.request.sendall(command.encode())
 
 
 if __name__ == '__main__':
-    HOST, PORT = '', 8001
+    HOST, PORT = '', 8000
     tcp_server = socketserver.TCPServer((HOST, PORT), BotHandler)
     try:
         tcp_server.serve_forever()
