@@ -8,11 +8,11 @@ def load_commands():
 class BotHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
-        data = self.request.recv(1024).strip()
+        data = self.request.recv(1024).decode().strip()
         print(f'Bot with IP {self.client_address[0]} send:')
         print(data)
         for command in load_commands():
-            self.request.sendall(command)
+            self.request.sendall(command.encode())
 
 
 if __name__ == '__main__':
